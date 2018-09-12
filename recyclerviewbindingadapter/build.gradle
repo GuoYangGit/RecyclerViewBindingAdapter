@@ -40,10 +40,10 @@ repositories {
 
 
 publish {
-    userOrg = 'vienan'
-    groupId = 'com.ditclear'
-    artifactId = 'bindinglistadapter'
+    userOrg = 'guoyanggit'
+    groupId = 'com.guoyanggit'
+    artifactId = 'RecyclerViewBindingAdapter'
     publishVersion = '1.0.1'
-    desc = 'A Simple RecyclerView Adapter in DataBinding'
-    website = 'https://github.com/ditclear/BindingListAdapter'
+    desc = 'this is RecyclerViewBindingAdapter for android'
+    website = 'https://github.com/GuoYangGit/RecyclerViewBindingAdapter'
 }
