@@ -30,6 +30,7 @@ android {
 dependencies {
     implementation 'com.android.support:recyclerview-v7:27.1.1'
     testImplementation 'junit:junit:4.12'
+
     //data binding
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 }
