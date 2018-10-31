@@ -10,6 +10,7 @@ import com.guoyang.recyclerviewbindingadapter.BR
 import com.guoyang.recyclerviewbindingadapter.ItemAnimator
 import com.guoyang.recyclerviewbindingadapter.ItemClickPresenter
 import com.guoyang.recyclerviewbindingadapter.ItemDecorator
+import com.guoyang.recyclerviewbindingadapter.observable.ObservableAdapterList
 
 /***
  *
@@ -28,7 +29,7 @@ import com.guoyang.recyclerviewbindingadapter.ItemDecorator
  * QQ:352391291
  */
 
-abstract class BindingViewAdapter<T>(context: Context, protected val list: ObservableList<T>) : RecyclerView.Adapter<BindingViewHolder<ViewDataBinding>>() {
+abstract class BindingViewAdapter<T>(context: Context, protected val list: ObservableAdapterList<T>) : RecyclerView.Adapter<BindingViewHolder<ViewDataBinding>>() {
     protected val mLayoutInflater: LayoutInflater = LayoutInflater.from(context)
 
     var itemPresenter: ItemClickPresenter<T>? = null
