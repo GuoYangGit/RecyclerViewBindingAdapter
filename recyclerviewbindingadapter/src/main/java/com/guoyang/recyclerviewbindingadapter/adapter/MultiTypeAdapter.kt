@@ -25,7 +25,7 @@ import com.guoyang.recyclerviewbindingadapter.observable.ObservableAdapterList
  * QQ:352391291
  */
 
-class MultiTypeAdapter(context: Context, list: ObservableAdapterList<Any>, val multiTyer: MultiViewType) : BindingViewAdapter<Any>(context, list) {
+class MultiTypeAdapter(context: Context, list: ObservableAdapterList<Any>, val multiTye: MultiViewType) : BindingViewAdapter<Any>(context, list) {
     private var mCollectionViewType: MutableList<Int> = mutableListOf()
 
     private val mItemTypeToLayoutMap = ArrayMap<Int, Int>()
