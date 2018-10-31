@@ -25,7 +25,7 @@ import com.guoyang.recyclerviewbindingadapter.observable.ObservableAdapterList
  * QQ:352391291
  */
 
-class MultiTypeAdapter(context: Context, list: ObservableAdapterList<Any>, val multiTye: MultiViewType) : BindingViewAdapter<Any>(context, list) {
+class MultiTypeAdapter(context: Context, list: ObservableAdapterList<Any>, val multiType: MultiViewType) : BindingViewAdapter<Any>(context, list) {
     private var mCollectionViewType: MutableList<Int> = mutableListOf()
 
     private val mItemTypeToLayoutMap = ArrayMap<Int, Int>()
@@ -35,9 +35,36 @@ class MultiTypeAdapter(context: Context, list: ObservableAdapterList<Any>, val m
     }
 
     private fun initMultiTypeList() {
-        list.addAdapterChangedCallback(object :ObservableAdapterList.OnAdapterChangedCallback{
-            override fun notifyAdapter() {
+        list.addOnListChangedCallback(object : ObservableList.OnListChangedCallback<ObservableList<Any>>() {
+            override fun onChanged(sender: ObservableList<Any>?) {
                 notifyDataSetChanged()
+            }
+
+            override fun onItemRangeRemoved(sender: ObservableList<Any>?, positionStart: Int, itemCount: Int) {
+                for (i in positionStart + itemCount - 1 downTo positionStart) mCollectionViewType.removeAt(i)
+                if (sender?.isNotEmpty() == true) {
+                    notifyItemRangeRemoved(positionStart, itemCount)
+                } else {
+                    mLastPosition = -1
+                    notifyDataSetChanged()
+                }
+            }
+
+            override fun onItemRangeMoved(sender: ObservableList<Any>?, fromPosition: Int, toPosition: Int, itemCount: Int) {
+                notifyItemMoved(fromPosition, toPosition)
+            }
+
+            override fun onItemRangeInserted(sender: ObservableList<Any>?, positionStart: Int, itemCount: Int) {
+                sender?.run {
+                    (positionStart until positionStart + itemCount).forEach {
+                        mCollectionViewType.add(it, multiType.getViewType(this[it]))
+                    }
+                    notifyItemRangeInserted(positionStart, itemCount)
+                }
+            }
+
+            override fun onItemRangeChanged(sender: ObservableList<Any>?, positionStart: Int, itemCount: Int) {
+                notifyItemRangeChanged(positionStart, itemCount)
             }
 
         })

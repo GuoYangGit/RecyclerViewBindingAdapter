@@ -1,7 +1,6 @@
 package com.guoyang.recyclerviewbindingadapter.adapter
 
 import android.content.Context
-import android.databinding.ObservableList
 import android.databinding.ViewDataBinding
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
@@ -10,7 +9,6 @@ import com.guoyang.recyclerviewbindingadapter.BR
 import com.guoyang.recyclerviewbindingadapter.ItemAnimator
 import com.guoyang.recyclerviewbindingadapter.ItemClickPresenter
 import com.guoyang.recyclerviewbindingadapter.ItemDecorator
-import com.guoyang.recyclerviewbindingadapter.observable.ObservableAdapterList
 
 /***
  *
