@@ -9,6 +9,7 @@ import com.guoyang.recyclerviewbindingadapter.BR
 import com.guoyang.recyclerviewbindingadapter.ItemAnimator
 import com.guoyang.recyclerviewbindingadapter.ItemClickPresenter
 import com.guoyang.recyclerviewbindingadapter.ItemDecorator
+import com.guoyang.recyclerviewbindingadapter.observable.ObservableAdapterList
 
 /***
  *
