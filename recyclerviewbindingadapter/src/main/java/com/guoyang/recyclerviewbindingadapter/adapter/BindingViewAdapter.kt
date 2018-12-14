@@ -47,6 +47,7 @@ abstract class BindingViewAdapter<T>(context: Context, protected val list: Obser
         val item = list[position]
         holder.binding.setVariable(BR.item, item)
         holder.binding.setVariable(BR.presenter, itemPresenter)
+        holder.binding.setVariable(BR.position, position)
         holder.binding.executePendingBindings()
         itemDecorator?.decorator(holder, position, getItemViewType(position))
         itemAnimator?.let {

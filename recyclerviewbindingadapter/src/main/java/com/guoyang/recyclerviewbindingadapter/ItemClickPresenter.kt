@@ -22,7 +22,7 @@ import com.guoyang.recyclerviewbindingadapter.adapter.BindingViewHolder
  */
 
 interface ItemClickPresenter<in Any> {
-    fun onItemClick(v: View, item: Any)
+    fun onItemClick(v: View, position: Int, item: Any)
 }
 
 interface ItemDecorator {

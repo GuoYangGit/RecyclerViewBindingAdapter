@@ -10,6 +10,10 @@
         <variable
             name="presenter"
             type="String"/>
+
+        <variable
+            name="position"
+            type="Integer"/>
     </data>
 
     <TextView
