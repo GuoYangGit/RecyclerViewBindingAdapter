@@ -44,7 +44,7 @@ publish {
     userOrg = 'guoyanggit'
     groupId = 'com.guoyanggit'
     artifactId = 'RecyclerViewBindingAdapter'
-    publishVersion = '1.0.6'
+    publishVersion = '1.0.7'
     desc = 'this is RecyclerViewBindingAdapter for android'
     website = 'https://github.com/GuoYangGit/RecyclerViewBindingAdapter'
 }

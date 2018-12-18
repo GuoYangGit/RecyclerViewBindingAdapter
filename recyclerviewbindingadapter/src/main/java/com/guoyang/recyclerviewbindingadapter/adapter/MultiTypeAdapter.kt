@@ -35,8 +35,21 @@ class MultiTypeAdapter(context: Context, list: ObservableAdapterList<Any>, val m
     }
 
     private fun initMultiTypeList() {
+        list.run {
+            if (this.isEmpty()) return@run
+            (0 until this.size).forEach {
+                mCollectionViewType.add(it, multiType.getViewType(this[it]))
+            }
+        }
         list.addOnListChangedCallback(object : ObservableList.OnListChangedCallback<ObservableList<Any>>() {
             override fun onChanged(sender: ObservableList<Any>?) {
+                sender?.run {
+                    if (this.isEmpty()) return@run
+                    mCollectionViewType.clear()
+                    (0 until sender.size).forEach {
+                        mCollectionViewType.add(it, multiType.getViewType(this[it]))
+                    }
+                }
                 notifyDataSetChanged()
             }
 
@@ -77,7 +90,7 @@ class MultiTypeAdapter(context: Context, list: ObservableAdapterList<Any>, val m
             )
 
     fun addViewTypeToLayoutMap(viewType: Int?, layoutRes: Int?) {
-        mItemTypeToLayoutMap.put(viewType, layoutRes)
+        mItemTypeToLayoutMap[viewType] = layoutRes
     }
 
     override fun getItemViewType(position: Int): Int = mCollectionViewType[position]
